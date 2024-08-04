@@ -1,0 +1,36 @@
+#include bitsstdc++.h
+using namespace std;
+int carry_add_two_numbers(int num_1, int num_2){
+   string str_1 = to_string(num_1);
+   int length_str_1 = str_1.length();
+   string str_2 = to_string(num_2);
+   int length_str_2 = str_2.length();
+   int count = 0, carr = 0;
+   while(length_str_1 != 0  length_str_2 != 0){
+      int i = 0, j = 0;
+      if (length_str_1  0){
+         i = str_1[length_str_1 - 1] - '0';
+         length_str_1--;
+      }
+      if (length_str_2  0){
+         j = str_2[length_str_2 - 1] - '0';
+         length_str_2--;
+      }
+      int add = i + j + carr;
+      if (add = 10){
+         carr = 1;
+         count++;
+      }
+      else{
+         carr = 0;
+      }
+   }
+   return count;
+}
+int main(){
+   int num_1 = 234578;
+   int num_2 = 1234;
+   int count = carry_add_two_numbers(num_1, num_2);
+   coutCount of number of carry operations required to add two numbers are count;
+   return 0;
+}
